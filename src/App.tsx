@@ -1,26 +1,16 @@
-import { Container } from './components/Container';
-import { Heading } from './components/Heading';
-import { Logo } from './components/Logo';
-import { Menu } from './components/Menu';
+import { MainRouter } from './routers/MainRouter';
+import { MessagesContainer } from './components/MessagesContainer';
+import { TaskContextProvider } from './contexts/TaskContext/TaskContextProvider';
 
 import './styles/globals.css';
 import './styles/theme.css';
 
 export function MyApp() {
   return (
-    <>
-      <Container>
-        <Logo />
-      </Container>
-      <Container>
-        <Menu />
-      </Container>
-      <Container>
-        <Heading>FORM</Heading>
-      </Container>
-      <Container>
-        <Heading>FOOTER</Heading>
-      </Container>
-    </>
+    <TaskContextProvider>
+      <MessagesContainer>
+        <MainRouter />
+      </MessagesContainer>
+    </TaskContextProvider>
   );
 }
